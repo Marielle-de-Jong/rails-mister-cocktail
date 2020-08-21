@@ -1,0 +1,12 @@
+<h1>Add a new cocktail</h1>
+<p>Find me in app/views/cocktails/new.html.erb</p>
+<%= simple_form_for [ @cocktail] do |f| %>
+  <%= f.label :name %>
+  <%= f.input :name %>
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+  <%= f.submit "Submit cocktail", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= link_to "Go back", cocktails_path %>

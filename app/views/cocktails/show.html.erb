@@ -1,0 +1,22 @@
+<%img = @cocktail.image%>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%=@cocktail.image%>">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
+<h3>Description</h3>
+
+
+<h3>Ingredients</h3>
+<% @doses.each do |dose| %>
+<%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+<p> <%= dose.description %></p>
+<% end %>
+
+
+<%= link_to "Go back", cocktails_path %>
+
+
+<%= link_to "Add new dose", new_cocktail_dose_path(@cocktail)  %>
+

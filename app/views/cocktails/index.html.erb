@@ -23,7 +23,11 @@
   <% @cocktails.each do |cocktail| %>
   <%= link_to cocktail_path(cocktail), :action => 'go' do  %>
     <div class="card-cocktail">
-      <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill, class:"card-cocktail-image" %>
+      <% if cocktail.photo.attached? %>
+        <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill, class:"card-cocktail-image" %>
+      <% else %>
+        <img src="https://res.cloudinary.com/dhis451zc/image/upload/v1598005706/sample.jpg" alt="">
+        <% end %>
       <div class="card-cocktail-infos">
         <div>
           <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>

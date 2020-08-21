@@ -1,11 +1,22 @@
-<h1>Add a new cocktail</h1>
-<p>Find me in app/views/cocktails/new.html.erb</p>
-<%= simple_form_for [ @cocktail] do |f| %>
-  <%= f.label :name %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Submit cocktail", class: "btn btn-primary" %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path('bannerimage.jpg')%>);">
+  <div class="container">
+    <h1>Add a new cocktail</h1>
+  </div>
+</div>
 
 
-<%= link_to "Go back", cocktails_path %>
+<div class="container">
+  <div class="create-cocktail-form">
+  <%= simple_form_for [ @cocktail] do |f| %>
+    <div class="search-form-control form-group">
+      <%= f.error_notification %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit cocktail", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to "Go back", cocktails_path %>
+</div>
+
+

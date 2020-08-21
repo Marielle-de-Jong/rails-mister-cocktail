@@ -1,8 +1,12 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/doses/new.html.erb</p>
+<%= render "./cocktails/navbar"%>
 
-<%= simple_form_for [ @cocktail, @dose ] do |f| %>
-  <%= f.association :ingredient %>
-  <%= f.input :description %>
-  <%= f.submit "Submit dose", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+
+  <h1>Add a new dose</h1>
+  <br>
+  <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+    <%= f.association :ingredient %>
+    <%= f.input :description %>
+    <%= f.submit "Submit dose", class: "btn-flat" %>
+  <% end %>
+</div>
